@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
-import CartItem from './CartItem';
+import CartItem from './CartItem'
 import CartSlice from './CartSlice';
 
 function ProductList({ onHomeClick }) {
@@ -293,8 +293,7 @@ function ProductList({ onHomeClick }) {
             )}
         </div>
     );
-}
-<div className="product-grid">
+    <div className="product-grid">
 {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
   <div key={index}> {/* Unique key for each category div */}
     <h1>
@@ -324,4 +323,5 @@ function ProductList({ onHomeClick }) {
   </div>
 ))}
 </div>
+}
 export default ProductList;
