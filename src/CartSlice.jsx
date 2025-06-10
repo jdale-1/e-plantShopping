@@ -17,7 +17,14 @@ export const CartSlice = createSlice({
     // If item does not exist, add it to the cart with quantity 1
     state.items.push({ name, image, cost, quantity: 1 });
   }
+  const handleAddToCart = (product) => {
+    dispatch(addItem(product)); // Dispatch the action to add the product to the cart (Redux action)
   
+    setAddedToCart((prevState) => ({ // Update the local state to reflect that the product has been added
+      ...prevState, // Spread the previous state to retain existing entries
+      [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
+    }));
+  };
 },
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.name !== action.payload);
