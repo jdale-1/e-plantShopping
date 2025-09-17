@@ -12,10 +12,10 @@ const CartItem = ({ onContinueShopping }) => {
     let total = 0;
 
     cart.forEach(item => {
-        const quantity = item.quantity;
-        const costString = item.cost;
+        const quantity = itemQuantity;
+        const costString = itemCost;
         const cost = parseFloat(costString.substring(1));
-        total += item.quantity * item.cost;
+        total += itemQuantity * itemCost;
     });
     return total;
   };
