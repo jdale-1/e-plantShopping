@@ -15,7 +15,7 @@ function ProductList({ onHomeClick }) {
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
       };
-
+    
     const plantsArray = [
         {
             category: "Air Purifying Plants",
