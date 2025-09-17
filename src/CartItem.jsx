@@ -21,7 +21,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleContinueShopping = (e) => {
-   dispatch(ContinueShopping());
+   dispatch(onContinueShopping(e));
   };
 
 
