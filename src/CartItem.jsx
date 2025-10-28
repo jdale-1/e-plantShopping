@@ -7,7 +7,7 @@ const selectTotalAmount = (state) =>
     state.cart.items.reduce((total, item) => {
         const itemCost = parseFloat(item.cost.substring(1));
         return total + (itemCost * item.quantity);
-    }, )
+    }, 0);
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
