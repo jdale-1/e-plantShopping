@@ -35,7 +35,7 @@ if (itemToUpdate) {
         const itemCost = parseFloat(item.cost.substring(1));
         
         // Multiply the cost by the quantity and add it to the accumulator
-        return total + (itemCost * item.quantity);
+        return total + (item.cost * item.quantity);
       }, 0); // The second argument '0' is the initial value of the total
     },
   },
