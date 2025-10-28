@@ -29,6 +29,15 @@ if (itemToUpdate) {
   itemToUpdate.quantity = quantity; // If the item is found, update its quantity to the new value
 }
     },
+    calculateTotalAmount: (state) => {
+      state.totalAmount = state.items.reduce((total, item) => {
+        // Extract the cost string (e.g., "$19.99"), remove the "$" sign, and convert to a number
+        const itemCost = parseFloat(item.cost.substring(1));
+        
+        // Multiply the cost by the quantity and add it to the accumulator
+        return total + (itemCost * item.quantity);
+      }, 0); // The second argument '0' is the initial value of the total
+    },
   },
 });
 
