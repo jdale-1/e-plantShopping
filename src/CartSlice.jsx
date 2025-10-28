@@ -26,21 +26,13 @@ export const CartSlice = createSlice({
 // Find the item in the cart that matches the given name
 const itemToUpdate = state.items.find(item => item.name === name);
 if (itemToUpdate) {
-  itemToUpdate.quantity = quantity; // If the item is found, update its quantity to the new value
+  itemToUpdate.quantity = Math.max(1, quantity); // If the item is found, update its quantity to the new value
 }
-    },
-    calculateTotalAmount: (state) => {
-      state.totalAmount = state.items.reduce((total, item) => {
-        // Extract the cost string (e.g., "$19.99"), remove the "$" sign, and convert to a number
-        const itemCost = parseFloat(item.cost.substring(1));
-        
-        // Multiply the cost by the quantity and add it to the accumulator
-        return total + (item.cost * item.quantity);
-      }, 0); // The second argument '0' is the initial value of the total
+    
     },
   },
 });
 
-export const { addItem, removeItem, updateQuantity, calculateTotalAmount } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity, } = CartSlice.actions;
 
 export default CartSlice.reducer;
