@@ -267,66 +267,66 @@ function ProductList({ onHomeClick }) {
 
 
    return (
-       <div>
-           <div className="navbar" style={styleObj}>
-               <div className="tag">
-                   <div className="luxury">
-                       <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
-                       <a href="/" onClick={(e) => handleHomeClick(e)}>
-                           <div>
-                               <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
-                               <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
-                           </div>
-                       </a>
-                   </div>
-
-
-               </div>
-               <div style={styleObjUl}>
-                   <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
-                   <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path></svg></h1></a></div>
+    <div>
+      <div className="navbar" style={styleObj}>
+        <div className="tag">
+          <div className="luxury">
+            <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
+            <a href="/" onClick={(e) => handleHomeClick(e)}>
+              <div>
+                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
+                <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div style={styleObjUl}>
+          <div>
+            <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a>
+          </div>
+          <div>
+            <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+              <h1 className='cart'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                  <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.636-8.583c.076-.402-.275-.765-.679-.765h-13.684l-.195-.922c-.089-.447-.483-.778-.929-.778h-1.619c-.552 0-1 .448-1 1s.448 1 1 1h.739l2.879 13.565c.148.694.757 1.189 1.488 1.189h10c.828 0 1.5-.672 1.5-1.5s-.672-1.5-1.5-1.5h-9.288l-.261-1.229h10.985c.677 0 1.255-.429 1.484-1.069l2.42-7.146c.14-.41-.023-.859-.433-1.077-.41-.219-.884-.044-1.076.368l-2.067 6.113h-10.741l-1.061-5h10.428l.583-3h-11.233z" />
+                </svg>
                 {/* Conditionally render the cart count */}
                 {cartItems.length > 0 && (
                   <span className="cart-count">{cartItems.reduce((total, item) => total + item.quantity, 0)}</span>
-               </div>
-           </div>
-           {!showCart ? (
-               <div className="product-grid">
-{plantsArray.map((category, index) => ( // Loop through each category in plantsArray
- <div key={index}> {/* Unique key for each category div */}
-   <h1>
-     <div>{category.category}</div> {/* Display the category name */}
-   </h1>
-   <div className="product-list"> {/* Container for the list of plant cards */}
-     {category.plants.map((plant, plantIndex) => ( // Loop through each plant in the current category
-       <div className="product-card" key={plantIndex}> {/* Unique key for each plant card */}
-         <img
-           className="product-image"
-           src={plant.image} // Display the plant image
-           alt={plant.name} // Alt text for accessibility
-         />
-         <div className="product-title">{plant.name}</div> {/* Display plant name */}
-         {/* Display other plant details like description and cost */}
-         <div className="product-description">{plant.description}</div> {/* Display plant description */}
-         <div className="product-cost">{plant.cost}</div> {/* Display plant cost */}
-         <button
-           className="product-button"
-           onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
-         >
-           Add to Cart
-         </button>
-       </div>
-     ))}
-   </div>
- </div>
-))}
-
-
-               </div>
-           ) : (
-               <CartItem onContinueShopping={handleContinueShopping} />
-           )}
-       </div>
-   );
+                )}
+              </h1>
+            </a>
+          </div>
+        </div>
+      </div>
+      {!showCart ? (
+        <div className="product-grid">
+          {plantsArray.map((category, index) => (
+            <div key={index}>
+              <h1>
+                <div>{category.category}</div>
+              </h1>
+              <div className="product-list">
+                {category.plants.map((plant, plantIndex) => (
+                  <div className="product-card" key={plantIndex}>
+                    <img className="product-image" src={plant.image} alt={plant.name} />
+                    <div className="product-title">{plant.name}</div>
+                    <div className="product-description">{plant.description}</div>
+                    <div className="product-cost">{plant.cost}</div>
+                    <button className="product-button" onClick={() => handleAddToCart(plant)}>
+                      Add to Cart
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <CartItem onContinueShopping={handleContinueShopping} />
+      )}
+    </div>
+  );
 }
+
 export default ProductList;
