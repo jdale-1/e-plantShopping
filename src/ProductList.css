@@ -217,6 +217,13 @@ body {
   
   .product-button.added-to-cart {
     background-color: grey; /* Grey when product is added */
+    color: #666666; /* Darker text color */
+  cursor: not-allowed; /* Change cursor on hover */
+  border: 1px solid #999999;
+}
+
+.product-button:disabled:hover {
+    background-color: #cccccc; /* Ensure hover doesn't change color for disabled button */
   }
   @media (max-width: 1200px) {
     .product-card {
