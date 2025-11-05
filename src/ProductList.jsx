@@ -12,7 +12,9 @@ function ProductList({ onHomeClick }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
+    if (!cartItems.some(item => item.name === product.name)) {
     dispatch(addItem(product));
+    }
   };
 
    const plantsArray = [
